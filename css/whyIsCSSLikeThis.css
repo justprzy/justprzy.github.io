@@ -1,0 +1,142 @@
+/* CSS used from https://watercss.netlify.app/#installation */
+/* Loading gif */
+#loadGif {
+    padding-left: 20%;
+}
+/* Grid */
+body {
+    max-width: 95%;
+}
+.container {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-rows: 3rem 25rem 25rem;
+    grid-template-columns: 20rem 40% auto;
+    grid-template-areas:
+        'a a a'
+        'b c e'
+        'b d e';
+}
+.box {
+    background-color: #161f27;
+    border-radius: 5px;
+    padding: 0px;
+    font-size: 150%;
+}
+.a {
+    grid-area: a;
+    padding: 0px 5px 5px 5px;
+}
+.b {
+    grid-area: b;
+    padding: 0px 5px 5px 5px;
+}
+.c {
+    grid-area: c;
+    padding: 0px 5px 5px 5px;
+}
+.d {
+    grid-area: d;
+    padding: 0px 5px 5px 5px;
+}
+.e {
+    grid-area: e;
+    padding: 0px 5px 5px 5px;
+}
+/* List of gallerys (box b) */
+#galleryList {
+    font-size: 80%;
+    padding-left: 5px;
+    margin-top: 0%;
+    list-style: none;
+    text-align: left;
+    height: 47rem;
+    overflow: auto;
+    overflow-x: hidden;
+}
+.a h2, h3{
+    display: inline-block;
+    margin-top: 0px;
+}
+h3 {
+    margin-top: 0px;
+}
+button {
+    background-color: #1c76c5;
+    font-size: 50%;
+    padding: 5px 20px;
+    margin: 0%;
+}
+#show{
+    display: none;
+}
+/* Gallery info (box c) */
+label {
+    display: block;
+    padding-bottom: 20px;
+    padding-left: 5px;
+    font-weight: bold;
+    font-size: 95%;
+}
+span, a{
+    font-weight: normal;
+    font-size: 90%;
+}
+/* Map (box d) */
+#map {
+    margin: 5px;
+    height: 325px;
+}
+/* Table (box e) */
+#tableDiv {
+    height: 47rem;
+    overflow: auto;
+}
+.col1 {
+    width: 20%;
+}
+.col2 {
+    width: 20%;
+}
+.col3 {
+    width: 40%;
+}
+.col4 {
+    width: 20%;
+}
+.titleLink:hover{ 
+    text-decoration: underline;
+}
+/* Single Page View */
+#singlePageView {
+    display: none;
+    grid-row-gap: 10px;
+    grid-column-gap: 0px;
+    grid-template-rows: 3rem 25rem 25rem;
+    grid-template-columns: 50% auto;
+    grid-template-areas:
+        'a a'
+        'f g'
+        'f g';
+}
+.f {
+    grid-area: f;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    align-items: center;
+    justify-items: center;
+    grid-template-areas:
+        'h'
+        'h'
+        'h';
+}
+.h {
+    grid-area: h;
+    padding: 0px;
+    max-width: 800px;
+}
+.g {
+    grid-area: g;
+    padding: 0px;
+}

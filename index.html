@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8"/>  
+   <title>Assignment1</title>
+   <!--third-party CSS library used -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+   <!-- My CSS -->
+   <link rel="stylesheet" href="css/whyIsCSSLikeThis.css">
+    
+</head>
+
+<body>
+    
+    <div id="defaultView" class="container">
+        <div class="box a">
+            <h2>COMP 3512 Assign1: </h2>
+            <h3>Justin Przybylski</h3>
+        </div>
+        <div class="box b">        
+            <h3>Galleries
+                <button id="hide">Hide</button>
+                <button id="show">Show</button>
+            </h3>
+            <img id="loadGif" src="img/Randy.gif"></img>
+            <nav style="display: none;">
+                <ul id="galleryList"></ul> 
+            </nav>
+        </div>
+        <div class="box c">
+            <h3>Gallery Info</h3>
+            <label>Gallery Name:<span id="galleryName"></span></label>
+            <label>Native Name:<span id="nativeName"></span></label> 
+            <label>City:<span id="galleryCity"></span></label>            
+            <label>Address:<span id="galleryAddress"></span></label>            
+            <label>Country:<span id="galleryCountry"></span></label>            
+            <label>Website:<a id="galleryWebsite" src=''></a></label>          
+        </div>
+        <div class="box d">
+            <h3>Map</h3>
+            <div id="map"></div>
+        </div>
+        <div class="box e">
+            <h3>Paintings</h3>
+            <div id="loadGifTwo" style="display: none;"><img src="img/Randy.gif"></img></div>
+            <div id="tableDiv" style="display: none;"> 
+                <table>
+                    <colgroup>
+                        <col class="col1">
+                        <col class="col2">
+                        <col class="col3">
+                        <col class="col4">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Artist</th>
+                        <th>Title</th>
+                        <th>Year</th>
+                    </tr>
+                    </thead>
+                    <tbody id="paintings">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+   <div id="singlePageView" class='container'> <!-- This section is sadly unfinished so bugs and weird formatting ensured -->
+        <div class="box a">
+            <h2>COMP 3512 Assign1: </h2>
+            <h3>Justin Przybylski</h3>
+        </div>
+        <div class="box f">
+            <div class="h">
+                
+            </div>
+        </div>
+        <div class="box g">
+            <h1 id="title"></h1>
+            <p id="artist"></p>
+            <p id="year"></p>
+            <p id="medium"></p>
+            <p id="wh"></p>
+            <p id="gallery"></p>
+            <p id="city"></p>
+            <a id='link' href=""></a>
+            <p id="description">Description:</p>
+            <div id="descriptionBox"></div>
+            <p id="colors">:</p>
+            <button id="goBack">Go Back</button>
+        </div>
+    </div>
+
+<script src="js/unholyCode.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBN26Hf7iUMnPLNVQqKKGXUQzmktGteqcY&callback=initMap"></script>
+</body>
+</html>
