@@ -216,6 +216,7 @@ document.addEventListener("DOMContentLoaded", function() {
             document.querySelector('#description').style.display = 'none';
         }
         const colors = document.querySelector('#colorList');
+        colors.textContent = '';
         for (const c of paintingSelected.JsonAnnotations.dominantColors) {
             let newBox = document.createElement('div');
             newBox.setAttribute('class', 'colorBox');
