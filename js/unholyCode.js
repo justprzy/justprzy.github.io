@@ -187,14 +187,21 @@ document.addEventListener("DOMContentLoaded", function() {
         let newImg = document.createElement('img');
         newImg.setAttribute('src', imgLink);
         boxH.appendChild(newImg);
+        // let newFigCaption = document.createElement('figcaption');
+        // newFigCaption.textContent = paintingSelected.Title;
+        // boxH.appendChild(newFigCaption);
 
         //Painting Info
         document.querySelector('#title').textContent = paintingSelected.Title;
-        document.querySelector('#artist').textContent = paintingSelected.FirstName + ' ' + paintingSelected.LastName;
+        if (paintingSelected.FirstName) {
+            document.querySelector('#artist').textContent = paintingSelected.FirstName + ' ' + paintingSelected.LastName;
+        } else {
+            document.querySelector('#artist').textContent = paintingSelected.LastName;
+        }
         document.querySelector('#year').textContent = paintingSelected.YearOfWork;
         document.querySelector('#medium').textContent = paintingSelected.Medium;
-        document.querySelector('#wh').textContent = paintingSelected.Width + ' x ' + paintingSelected.Height;
-        document.querySelector('#gallery').textContent = paintingSelected.GalleryName;
+        document.querySelector('#wh').textContent = paintingSelected.Width + 'cm x ' + paintingSelected.Height + 'cm';
+        document.querySelector('#gallery').textContent = 'Located at: ' + paintingSelected.GalleryName + ', ';
         document.querySelector('#city').textContent = paintingSelected.GalleryCity;
         document.querySelector('#link').textContent = paintingSelected.MuseumLink;
         document.querySelector('#link').setAttribute('href', paintingSelected.MuseumLink);
