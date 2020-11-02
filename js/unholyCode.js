@@ -208,6 +208,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector('#city').textContent = paintingSelected.GalleryCity;
         document.querySelector('#link').textContent = paintingSelected.MuseumLink;
         document.querySelector('#link').setAttribute('href', paintingSelected.MuseumLink);
+        document.querySelector('#descriptionBox').textContent = '';
         if (paintingSelected.Description) {
             document.querySelector('#description').style.display = 'block';
             document.querySelector('#descriptionBox').textContent = paintingSelected.Description;
