@@ -1,5 +1,3 @@
-// TODO: ADD LOADING ANAMATION!!!!!!
-
 function initMap() { //This is here to avoid an uncaught promise
 
 }
@@ -81,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function getPaintings (galleryClicked) {
+        document.querySelector('#tableDiv').style.display = 'none';
         document.querySelector('#loadGifTwo').style.display = 'block';
         let paintingsListLink = paintingsLink + galleryClicked.GalleryID;
         fetch(paintingsListLink)
@@ -171,7 +170,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     //Painting View
-    //This section is sadly unfinished so bugs and weird formatting ensured
     function switchViews (titleSelected, sortedPaintings) {
         document.querySelector('#defaultView').style.display = 'none';
         document.querySelector('#singlePageView').style.display = 'grid';
@@ -186,10 +184,15 @@ document.addEventListener("DOMContentLoaded", function() {
         let imgLink = `https://res.cloudinary.com/funwebdev/image/upload/h_650/art/paintings/${paintingSelected.ImageFileName}`;
         let newImg = document.createElement('img');
         newImg.setAttribute('src', imgLink);
+        newImg.addEventListener('click', function () {
+            let largeImgLink = `https://res.cloudinary.com/funwebdev/image/upload/art/paintings/${paintingSelected.ImageFileName}`;
+            document.querySelector('#largeImg').setAttribute('src', largeImgLink);
+            document.querySelector('#largeImgView').style.display = 'block';
+            document.querySelector('#largeImg').addEventListener('click', function () {
+                document.querySelector('#largeImgView').style.display = 'none';
+            });
+        });
         boxH.appendChild(newImg);
-        // let newFigCaption = document.createElement('figcaption');
-        // newFigCaption.textContent = paintingSelected.Title;
-        // boxH.appendChild(newFigCaption);
 
         //Painting Info
         document.querySelector('#title').textContent = paintingSelected.Title;
@@ -198,21 +201,30 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             document.querySelector('#artist').textContent = paintingSelected.LastName;
         }
-        document.querySelector('#year').textContent = paintingSelected.YearOfWork;
-        document.querySelector('#medium').textContent = paintingSelected.Medium;
-        document.querySelector('#wh').textContent = paintingSelected.Width + 'cm x ' + paintingSelected.Height + 'cm';
+        document.querySelector('#year').textContent = 'Made in the year ' + paintingSelected.YearOfWork;
+        document.querySelector('#medium').textContent = 'Medium: ' + paintingSelected.Medium;
+        document.querySelector('#wh').textContent = 'Size: ' + paintingSelected.Width + 'cm x ' + paintingSelected.Height + 'cm';
         document.querySelector('#gallery').textContent = 'Located at: ' + paintingSelected.GalleryName + ', ';
         document.querySelector('#city').textContent = paintingSelected.GalleryCity;
         document.querySelector('#link').textContent = paintingSelected.MuseumLink;
         document.querySelector('#link').setAttribute('href', paintingSelected.MuseumLink);
-        // document.querySelector('#description').textContent = paintingSelected.;
-        let colorList;
-        for (const c of paintingSelected.JsonAnnotations.dominantColors) {
-            colorList += c.name;
+        if (paintingSelected.Description) {
+            document.querySelector('#description').style.display = 'block';
+            document.querySelector('#descriptionBox').textContent = paintingSelected.Description;
+        } else {
+            document.querySelector('#description').style.display = 'none';
         }
-        document.querySelector('#colors').textContent = colorList;
-
-
+        const colors = document.querySelector('#colorList');
+        for (const c of paintingSelected.JsonAnnotations.dominantColors) {
+            let newBox = document.createElement('div');
+            newBox.setAttribute('class', 'colorBox');
+            newBox.style.backgroundColor = c.web;
+            let toolTip = document.createElement('span');
+            toolTip.setAttribute('class', 'toolTip')
+            toolTip.textContent = c.name;
+            newBox.appendChild(toolTip);
+            colors.appendChild(newBox);
+        }
     }
 
 });

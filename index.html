@@ -23,7 +23,7 @@
                 <button id="show">Show</button>
             </h3>
             <img id="loadGif" src="img/Randy.gif"></img>
-            <nav style="display: none;">
+            <nav>
                 <ul id="galleryList"></ul> 
             </nav>
         </div>
@@ -42,8 +42,8 @@
         </div>
         <div class="box e">
             <h3>Paintings</h3>
-            <div id="loadGifTwo" style="display: none;"><img src="img/Randy.gif"></img></div>
-            <div id="tableDiv" style="display: none;"> 
+            <div id="loadGifTwo"><img src="img/Randy.gif"></img></div>
+            <div id="tableDiv"> 
                 <table>
                     <colgroup>
                         <col class="col1">
@@ -67,7 +67,7 @@
         </div>
     </div>
 
-   <div id="singlePageView" class='container'> <!-- This section is sadly unfinished so bugs and weird formatting ensured -->
+   <div id="singlePageView" class='container'>
         <div class="box a">
             <h2>COMP 3512 Assign1: </h2>
             <h3>Justin Przybylski</h3>
@@ -88,9 +88,13 @@
             <a id='link' href=""></a>
             <p id="description">Description:</p>
             <div id="descriptionBox"></div>
-            <p id="colors">:</p>
+            <p id="colors">Dominant colors:</p>
+            <div id="colorList"></div>
             <button id="goBack">Go Back</button>
         </div>
+    </div>
+    <div id="largeImgView">
+        <img id="largeImg"></img>
     </div>
 
 <script src="js/unholyCode.js"></script>
